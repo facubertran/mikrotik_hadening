@@ -7,10 +7,10 @@ add action=accept chain=input comment=DeshabilitarFirewal disabled=no
 add action=passthrough chain=input comment="Proteccion de Input - Crenein"
 add action=jump chain=input comment=ReconocimientoParaAccesoPublico dst-port=($portknoking->"port1") jump-target=ReconocimientoParaAccesoPublico protocol=tcp
 add action=jump chain=input comment=ReconocimientoParaAccesoPublico dst-port=($portknoking->"port2") jump-target=ReconocimientoParaAccesoPublico protocol=tcp
-add action=add-src-to-address-list address-list=F_ReconocimientoParaAccesoPublico_Fase1 address-list-timeout=1m chain=ReconocimientoParaAccesoPublico dst-port=1 \
+add action=add-src-to-address-list address-list=F_ReconocimientoParaAccesoPublico_Fase1 address-list-timeout=1m chain=ReconocimientoParaAccesoPublico dst-port=($portknoking->"port1") \
     protocol=tcp
 add action=add-src-to-address-list address-list=F_PermitidoPorReconocimientoParaAccesoPublico address-list-timeout=30m chain=ReconocimientoParaAccesoPublico \
-    dst-port=2 protocol=tcp src-address-list=F_ReconocimientoParaAccesoPublico_Fase1
+    dst-port=($portknoking->"port2") protocol=tcp src-address-list=F_ReconocimientoParaAccesoPublico_Fase1
 add action=return chain=ReconocimientoParaAccesoPublico
 add action=jump chain=input comment=ProteccionTestVelocidadMikrotik dst-port=2000 jump-target=ProteccionTestVelocidadMikrotik protocol=tcp
 add action=jump chain=input dst-port=2000 jump-target=ProteccionTestVelocidadMikrotik protocol=udp
