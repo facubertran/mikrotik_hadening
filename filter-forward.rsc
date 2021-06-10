@@ -28,9 +28,6 @@ add action=jump chain=forward comment=ProteccionForwardSalida jump-target=\
     ProteccionForwardSalida out-interface-list=InterfacesExternas
 add action=drop chain=ProteccionForwardSalida src-address-list=\
     !F_OrigenesReservadosPermitidos
-add action=accept chain=ProteccionForwardSalida dst-address-list=\
-    F_BogonsDespuesDelFirewall
-add action=drop chain=ProteccionForwardSalida dst-address-list=F_Bogons
 add action=drop chain=ProteccionForwardSalida dst-address-list=\
     F_ListaNegraGeneral
 add action=accept chain=ProteccionForwardSalida connection-state=\

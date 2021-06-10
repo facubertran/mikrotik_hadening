@@ -1,3 +1,7 @@
+#Variables globales a utilizar
+:global portknoking;
+:global creneinagent;
+##Configuraicon
 /ip firewall filter
 add action=accept chain=input comment=DeshabilitarFirewal disabled=yes
 add action=passthrough chain=input comment="Proteccion de Input - Crenein"

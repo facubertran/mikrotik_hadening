@@ -1,3 +1,5 @@
+#Disable firewall
+/ip firewall filter enable [find comment="DeshabilitarFirewal"]
 #Variables globales
 :global redespublicas;
 :global ipspermitidasebgp;
@@ -5,6 +7,12 @@
 :global publicasdentrodelared;
 ##Menu address-list
 /ip firewall address-list
+##Remove old address-list
+remove [find list=F_OrigenesReservadosPermitidos]
+remove [find list=FN_RedesPublicasPropias]
+remove [find list=F_OrigenesPermitidos]
+remove [find list=F_ProteccionBGP_IPsPermitidas]
+remove [find list=F_ListaBlancaAPIMikrotik]
 ##Redes que se permiten navegar
 add address=10.0.0.0/8 list=F_OrigenesReservadosPermitidos
 add address=172.16.0.0/12 list=F_OrigenesReservadosPermitidos
@@ -28,3 +36,5 @@ address=$alpp;
 :foreach alpp in=$publicasdentrodelared do={/ip firewall address-list add list=F_ProteccionPublicasDentroDeLaRed \
 address=$alpp;
 }
+#Enable firewall
+/ip firewall filter disable [find comment="DeshabilitarFirewal"]
