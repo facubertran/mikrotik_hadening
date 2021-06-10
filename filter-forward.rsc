@@ -1,7 +1,7 @@
 /ip firewall filter
-add action=accept chain=forward comment=DeshabilitarFirewal disabled=yes
+add action=accept chain=forward comment=DeshabilitarFirewal disabled=no
 add action=passthrough chain=forward comment="Proteccion de Forward - Crenein"
-add action=jump chain=forward comment=ProteccionPublicasDentroDeLaRed
+add action=jump chain=forward comment=ProteccionPublicasDentroDeLaRed \
     dst-address-list=F_ProteccionPublicasDentroDeLaRed jump-target=\
     ProteccionPublicasDentroDeLaRed
 add action=accept chain=ProteccionPublicasDentroDeLaRed disabled=yes
