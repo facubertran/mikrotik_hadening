@@ -21,7 +21,7 @@ remove InterfacesInternas
 #Routes
 /ip route remove [find comment=Bogons]
 #Scripts-Scheduler
-/system script remove CreneinEdgeHarderingEnviroment
+/system script remove CreneinEdgehardeningEnviroment
 /system scheduler remove F_ListaNegraGeneral
 #System
 /ip settings

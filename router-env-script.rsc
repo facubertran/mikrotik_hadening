@@ -1,5 +1,5 @@
 ##Crea script con enviroment
-:do {/system script remove CreneinEdgeHarderingEnviroment} on-error={}
+:do {/system script remove CreneinEdgehardeningEnviroment} on-error={}
 /system script
-add name=CreneinEdgeHarderingEnviroment owner=admin \
-source=[/file get mikrotik-edge-hardering/router-enviroment.rsc content];
+add name=CreneinEdgehardeningEnviroment owner=admin \
+source=[/file get mikrotik-edge-hardening/router-enviroment.rsc content];
