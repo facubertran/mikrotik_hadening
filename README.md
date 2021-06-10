@@ -1,0 +1,1 @@
+## Hardering de router de borde Mikrotik
