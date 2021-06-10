@@ -1,3 +1,5 @@
+#Filter
+/ip firewall filter remove [find]
 #Address-List
 /ip firewall address-list
 remove [find list=F_OrigenesPermitidos]
@@ -6,8 +8,6 @@ remove [find list=F_OrigenesPermitidos]
 remove [find list=F_ProteccionBGP_IPsPermitidas]
 remove [find list=F_ListaBlancaAPIMikrotik]
 remove [find list=F_ProteccionPublicasDentroDeLaRed]
-#Filter
-/ip firewall filter remove [find]
 #Interface-list-members
 /interface list member
 remove [find list=InterfacesExternas]

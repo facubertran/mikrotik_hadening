@@ -4,7 +4,7 @@
 ##Configuraicon
 /ip firewall filter
 add action=accept chain=input comment=DeshabilitarFirewal disabled=no
-add action=passthrough chain=input comment="Proteccion de Input - Crenein"
+add action=passthrough chain=input comment="Proteccion de Input - Crenein v6.0"
 add action=jump chain=input comment=ReconocimientoParaAccesoPublico dst-port=($portknoking->"port1") jump-target=ReconocimientoParaAccesoPublico protocol=tcp
 add action=jump chain=input comment=ReconocimientoParaAccesoPublico dst-port=($portknoking->"port2") jump-target=ReconocimientoParaAccesoPublico protocol=tcp
 add action=add-src-to-address-list address-list=F_ReconocimientoParaAccesoPublico_Fase1 address-list-timeout=1m chain=ReconocimientoParaAccesoPublico dst-port=($portknoking->"port1") \
