@@ -1,6 +1,6 @@
 #Address-List
 /ip firewall address-list
-remove [find list=F_OrigenesReservadosPermitidos]
+remove [find list=F_OrigenesPermitidos]
 remove [find list=FN_RedesPublicasPropias]
 remove [find list=F_OrigenesPermitidos]
 remove [find list=F_ProteccionBGP_IPsPermitidas]

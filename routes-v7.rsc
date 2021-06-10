@@ -1,5 +1,5 @@
-
 ##RouterOS v7
+/ip route remove [find comment=Bogons]
 /ip route
 add dst-address=0.0.0.0/8 blackhole comment=Bogons
 add dst-address=127.0.0.0/8 blackhole comment=Bogons

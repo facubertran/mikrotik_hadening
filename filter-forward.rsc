@@ -27,7 +27,7 @@ add action=drop chain=ProteccionSMTP disabled=yes
 add action=jump chain=forward comment=ProteccionForwardSalida jump-target=\
     ProteccionForwardSalida out-interface-list=InterfacesExternas
 add action=drop chain=ProteccionForwardSalida src-address-list=\
-    !F_OrigenesReservadosPermitidos
+    !F_OrigenesPermitidos
 add action=drop chain=ProteccionForwardSalida dst-address-list=\
     F_ListaNegraGeneral
 add action=accept chain=ProteccionForwardSalida connection-state=\

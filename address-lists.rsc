@@ -6,25 +6,25 @@
 ##Menu address-list
 /ip firewall address-list
 ##Redes que se permiten navegar
-add address=10.0.0.0/8 list=F_OrigenesReservadosPermitidos
-add address=172.16.0.0/12 list=F_OrigenesReservadosPermitidos
-add address=192.168.0.0/16 list=F_OrigenesReservadosPermitidos
+:do {add address=10.0.0.0/8 list=F_OrigenesPermitidos} on-error={}
+:do {add address=172.16.0.0/12 list=F_OrigenesPermitidos} on-error={}
+:do {add address=192.168.0.0/16 list=F_OrigenesPermitidos} on-error={}
 ##Redes publicas propias
-:foreach alpp in=$redespublicas do={/ip firewall address-list add list=FN_RedesPublicasPropias \
-address=$alpp;
+:foreach alpp in=$redespublicas do={:do {/ip firewall address-list add list=FN_RedesPublicasPropias \
+address=$alpp} on-error={};
 }
-:foreach alpp in=$redespublicas do={/ip firewall address-list add list=F_OrigenesPermitidos \
-address=$alpp;
+:foreach alpp in=$redespublicas do={:do {/ip firewall address-list add list=F_OrigenesPermitidos \
+address=$alpp} on-error={};
 }
 ##IPs permitidas para BGP externo
-:foreach alpp in=$ipspermitidasebgp do={/ip firewall address-list add list=F_ProteccionBGP_IPsPermitidas \
-address=$alpp;
+:foreach alpp in=$ipspermitidasebgp do={:do {/ip firewall address-list add list=F_ProteccionBGP_IPsPermitidas \
+address=$alpp} on-error={};
 }
 ##Lista blanca API Mikrotik
-:foreach alpp in=$listablancaapi do={/ip firewall address-list add list=F_ListaBlancaAPIMikrotik \
-address=$alpp;
+:foreach alpp in=$listablancaapi do={:do {/ip firewall address-list add list=F_ListaBlancaAPIMikrotik \
+address=$alpp} on-error={};
 }
 ##Publicas dentro de la red a bloquear
-:foreach alpp in=$publicasdentrodelared do={/ip firewall address-list add list=F_ProteccionPublicasDentroDeLaRed \
-address=$alpp;
+:foreach alpp in=$publicasdentrodelared do={:do {/ip firewall address-list add list=F_ProteccionPublicasDentroDeLaRed \
+address=$alpp} on-error={};
 }
