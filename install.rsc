@@ -1,10 +1,14 @@
 ##Instalacion de RSCs
+:put "Setting Enviroment";
+/system script run EdgeHardeningEnviroment_Crenein;
 :put "Import Interface-List";
 /import mikrotik-edge-hardening/interface-list.rsc
 :put "Import Address-Lists";
 /import mikrotik-edge-hardening/address-lists.rsc
 :put "Purge Filter";
-/ip firewall filter remove [find]
+/ip firewall filter remove [find chain~"_Crenein"]
+/ip firewall filter remove [find jump-target~"_Crenein"]
+/ip firewall filter remove [find comment~"Crenein"]
 :put "Import Filter-Forward";
 /import mikrotik-edge-hardening/filter-forward.rsc
 :put "Import Filter-Input";

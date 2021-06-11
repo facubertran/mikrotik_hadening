@@ -1,7 +1,7 @@
 /interface list
-:do {add name=InterfacesInternas} on-error={}
-:do {add name=InterfacesExternas} on-error={}
-:do {add name=InterfacesExternasDeConfianza} on-error={}
+:do {add name=InterfacesInternas} on-error={:put "no se pudo crear el InterfaceList InterfacesInternas"}
+:do {add name=InterfacesExternas} on-error={:put "no se pudo crear el InterfaceList InterfacesExternas"}
+:do {add name=InterfacesExternasDeConfianza} on-error={:put "no se pudo crear el InterfaceList InterfacesExternasDeConfianza"}
 ##Agregado automático de todas las interfaces como Internas
 /
 :if ([:len [/interface/list/member/find list~"Interfaces"]] = 0) {\
