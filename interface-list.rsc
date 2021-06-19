@@ -1,3 +1,4 @@
+:global interfacesexternas; :global interfacesexternasdeconfianza
 /interface list
 :do {add name=InterfacesInternas} on-error={:put "no se pudo crear el InterfaceList InterfacesInternas"}
 :do {add name=InterfacesExternas} on-error={:put "no se pudo crear el InterfaceList InterfacesExternas"}

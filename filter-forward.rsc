@@ -1,3 +1,4 @@
+:global smtp;
 /ip firewall filter
 add action=accept chain=forward comment=DeshabilitarFirewal_Crenein disabled=no
 add action=passthrough chain=forward comment="Proteccion de Forward - Crenein v6.0"
