@@ -1,6 +1,9 @@
-## hardening de router de borde Mikrotik
+# Hardening de router de borde Mikrotik
+#### Esta configuracion fue desarrollada desde 0 por Facundo Bertran para Crenein SAS.
+#### Su uso es libre y muestra la capacidad de control de routers Mikrotik.
+#### Si desea asesoria técnica para su ISP o red empresarial puede comunicarse via whatsapp a+5493725409044
 
-##Comando de instalacion luego de subir archivos.
+## Procedimiento de instalación.
 
 1. Descargar archivos de github
 2. Subir carpeta a files dentro del RB
