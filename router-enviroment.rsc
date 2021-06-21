@@ -15,7 +15,7 @@
 :global publicasdentrodelared {"45.70.8.76"}
 ##----------Configuracion de interfaces------------##
 ##
-#Registra las redes o IPs de confianza
+#Registra el esquema de interfaces que requieras
 ##
 :global interfacesexternas {""}
 :global interfacesexternasdeconfianza {""}
@@ -76,7 +76,6 @@
 #Habilita o deshabilita servicios en las interfaces externas de confianza
 #Valor 1; habilitado, valor 0 deshabilitado
 ##
-:global pingiec 1;
 :global testvelocidadiec 1;
 :global ospfiec 1;
 :global bgpiec 1;
