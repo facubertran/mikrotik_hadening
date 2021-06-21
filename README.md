@@ -6,8 +6,9 @@
 ## Procedimiento de instalación.
 
 1. Descargar archivos de github
-2. Subir carpeta a files dentro del RB
-3. Ejecutar los siguientes comandos:
+2. Renombre la carpeta que contiene los archivos rsc como "mikrotik-edge-hardening"
+3. Subir carpeta a files dentro del RB
+4. Ejecutar los siguientes comandos:
 ```
 /system script remove preinstall
 /system script add name=preinstall owner=admin \
@@ -15,9 +16,9 @@ source=[/file get mikrotik-edge-hardening/preinstall.rsc content]}
 /system script run preinstall
 /system script remove preinstall
 ```
-4. Completar script de entorno "EdgeHardeningEnviroment_Crenein"
-5. Ejecutar script de instalacion "EdgeHardeningInstall_Crenein"
+5. Completar script de entorno "EdgeHardeningEnviroment_Crenein"
+6. Ejecutar script de instalacion "EdgeHardeningInstall_Crenein"
 ```
 /system script run EdgeHardeningInstall_Crenein
 ```
-6. Deshabilitar los accepts "DeshabilitarFirewal_Crenein" para encender el firewall. Son 2
+7. Deshabilitar los accepts "DeshabilitarFirewal_Crenein" para encender el firewall. Son 2
