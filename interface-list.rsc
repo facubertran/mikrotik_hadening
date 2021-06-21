@@ -6,8 +6,7 @@
 ##Agregado automático de todas las interfaces como Internas
 /interface list member remove [/interface list member find]
 /
-:foreach if in=[/interface find] do={\
-interface list member add list=InterfacesInternas interface=[/interface get $if name]}}
-:foreach ifext in=$interfacesexternas do={\
-[/interface list member set list=InterfacesExternas \
-[/interface list member find interface=$ifext]]}
+:foreach ie in=$interfacesexternas do={/interface list member add list=InterfacesExternas interface=$ie}
+:foreach iec in=$interfacesexternasdeconfianza do={/interface list member add list=InterfacesExternasDeConfianza interface=$iec}
+:foreach ii in=[/interface find] do={:if ([:len [/interface list member find interface=[/interface get $ii name]]] = 0) do={\
+/interface list member add list=InterfacesInternas interface=$ii}}
