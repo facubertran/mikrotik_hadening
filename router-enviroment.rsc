@@ -1,8 +1,11 @@
+##-----------__Version 6.0 __-------------####
 ##
 #Registra los puertos para port-knoking
 ##
 ##----------Configuracion de redes o IPs de confianza------------##
 :global portknoking {port1="1"; port2="2"};
+##
+#Crea o no bogons de redes privadas y CGNAT
 ##
 #Registra las redes o IPs de confianza
 ##
@@ -95,3 +98,12 @@
 :global greiec 1;
 :global ipseciec 1;
 :global webproxyiec 1;
+#
+##--------------__Version 6.1 __-------------####
+#
+##----------Configuracion de redes o IPs de confianza------------##
+:global bogons10 1;
+:global bogons172 1;
+:global bogons192 1;
+:global bogons100 1;
+##
