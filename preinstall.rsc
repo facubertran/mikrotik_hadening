@@ -1,7 +1,7 @@
 :do { /system script \
 add name=EdgeHardeningEnviroment_Crenein owner=admin \
 source=[/file get mikrotik-edge-hardening/router-enviroment.rsc content]} \
-on-error={:put "El script EdgeHardeningEnviroment_Crenein ya existe. Verifique version"};
+on-error={:put "El script EdgeHardeningEnviroment_Crenein ya existe."};
 
 :if ([/system script get EdgeHardeningEnviroment_Crenein source]~"__Version 6.1 __") do={} else={\
 :put "\nExiste una nueva version de Enviroment. Por favor reconstruya su script de enviroment a partir del archivo router-enviroment.rsc"} 
