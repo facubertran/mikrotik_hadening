@@ -11,11 +11,11 @@
 ##
 ##----------Configuracion de redes o IPs de confianza------------##
 :global creneinagent "10.0.0.0/8";
-:global redespublicas {"45.70.8.76"; "45.70.8.41"}
-:global redesdeorigenpermitidas {"45.70.8.76"; "45.70.8.41"}
+:global redespublicas {"45.98.68.5"}
+:global redesdeorigenpermitidas {"45.98.68.5"}
 :global ipspermitidasebgp {"45.70.8.1"}
 :global listablancaapi {"149.46.68.55"; "141.69.8.66"}
-:global publicasdentrodelared {"45.70.8.76"}
+:global publicasdentrodelared {"45.98.68.5"}
 ##----------Configuracion de interfaces------------##
 ##
 #Registra el esquema de interfaces que requieras
@@ -44,60 +44,60 @@
 :global httpii 1;
 :global ntpii 1;
 :global radiusii 1;
-:global socksii 1;
-:global smbii 1;
-:global l2tpii 1;
-:global pptpii 1;
-:global greii 1;
-:global ipsecii 1;
-:global webproxyii 1;
+:global socksii 0;
+:global smbii 0;
+:global l2tpii 0;
+:global pptpii 0;
+:global greii 0;
+:global ipsecii 0;
+:global webproxyii 0;
 ##----------Configuracion de servicios en interfaces externas------------##
 ##
 #Habilita o deshabilita servicios en las interfaces externas
 #Valor 1; habilitado, valor 0 deshabilitado
 ##
-:global testvelocidadie 1;
-:global ospfie 1;
+:global testvelocidadie 0;
+:global ospfie 0;
 :global bgpie 1;
 :global dhcpie 1;
-:global snmpie 1;
-:global mndpie 1;
+:global snmpie 0;
+:global mndpie 0;
 :global winboxie 1;
 :global sshie 1;
 :global httpie 1;
-:global ntpie 1;
-:global radiusie 1;
-:global socksie 1;
-:global smbie 1;
+:global ntpie 0;
+:global radiusie 0;
+:global socksie 0;
+:global smbie 0;
 :global l2tpie 1;
 :global pptpie 1;
 :global greie 1;
 :global ipsecie 1;
-:global webproxyie 1;
+:global webproxyie 0;
 ##----------Configuracion de servicios en interfaces externas de confianza------------##
 ##
 #Habilita o deshabilita servicios en las interfaces externas de confianza
 #Valor 1; habilitado, valor 0 deshabilitado
 ##
-:global testvelocidadiec 1;
-:global ospfiec 1;
+:global testvelocidadiec 0;
+:global ospfiec 0;
 :global bgpiec 1;
-:global dnsiec 1;
-:global dhcpiec 1;
-:global snmpiec 1;
-:global mndpiec 1;
+:global dnsiec 0;
+:global dhcpiec 0;
+:global snmpiec 0;
+:global mndpiec 0;
 :global winboxiec 1;
 :global sshiec 1;
 :global httpiec 1;
-:global ntpiec 1;
-:global radiusiec 1;
-:global socksiec 1;
-:global smbiec 1;
-:global l2tpiec 1;
-:global pptpiec 1;
-:global greiec 1;
-:global ipseciec 1;
-:global webproxyiec 1;
+:global ntpiec 0;
+:global radiusiec 0;
+:global socksiec 0;
+:global smbiec 0;
+:global l2tpiec 0;
+:global pptpiec 0;
+:global greiec 0;
+:global ipseciec 0;
+:global webproxyiec 0;
 #
 ##--------------__Version 6.1 __-------------####
 #

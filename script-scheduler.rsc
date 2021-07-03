@@ -1,4 +1,4 @@
-:do {/system script remove F_ListaNegraGeneral} on-error={:put "No se pudo eliminar el script F_ListaNegraGeneral"}
+:do {/system script remove F_ListaNegraGeneral} on-error={:put "INFO - No se pudo eliminar el script F_ListaNegraGeneral porque no existe"}
 /system script
 add name=F_ListaNegraGeneral source="ip firewall ad\
     dress-list\r\
@@ -20,7 +20,7 @@ add name=F_ListaNegraGeneral source="ip firewall ad\
     \n\$update url=https://sslbl.abuse.ch/blacklist/sslipblacklist.txt description=\"Abuse.ch SSLBL\" delimiter=(\"\\r\")"
 :execute "F_ListaNegraGeneral"
 
-:do {/system scheduler remove F_ListaNegraGeneral} on-error={:put "No se pudo eliminar el scheduler F_ListaNegraGeneral"}
+:do {/system scheduler remove F_ListaNegraGeneral} on-error={:put "INFO - No se pudo eliminar el scheduler F_ListaNegraGeneral porque no existe"}
 /system scheduler
 add interval=1d name=F_ListaNegraGeneral on-event=F_ListaNegraGeneral start-date=\
     may/27/2021 start-time=19:56:16

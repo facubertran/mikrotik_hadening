@@ -24,7 +24,8 @@ add action=jump chain=forward comment=ProteccionSMTP_Crenein dst-port=\
     25,110,465,587,995,143,993 jump-target=ProteccionSMTP_Crenein protocol=tcp
 add action=drop chain=ProteccionSMTP_Crenein src-address-list=F_ListaNegraSMTP
 add action=accept chain=ProteccionSMTP_Crenein src-address-list=F_ListaBlancaSMTP
-add action=drop chain=ProteccionSMTP_Crenein disabled=yes
+:if ($smtp = 1) do={add action=drop chain=ProteccionSMTP_Crenein disabled=no} \
+else={add action=drop chain=ProteccionSMTP_Crenein disabled=yes}
 add action=jump chain=forward comment=ProteccionForwardSalida_Crenein jump-target=\
     ProteccionForwardSalida_Crenein out-interface-list=InterfacesExternas
 add action=drop chain=ProteccionForwardSalida_Crenein src-address-list=\
