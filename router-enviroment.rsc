@@ -5,15 +5,16 @@
 ##----------Configuracion de redes o IPs de confianza------------##
 :global portknoking {port1="1"; port2="2"};
 ##
-#Crea o no bogons de redes privadas y CGNAT
-##
+##--------Configuracion de reconocimiento de login fallido api------##
+:global intentosfallidos 3;
+##----------Configuracion de redes o IPs de confianza------------##
 #Registra las redes o IPs de confianza
-##
 ##----------Configuracion listas generales------------##
 :global redespublicas {"45.98.68.5"}
 :global redesdeorigenpermitidas {"45.98.68.5"}
 :global publicasdentrodelared {"45.98.68.5"}
 ##----------Configuracion bogons------------##
+#Crea o no bogons de redes privadas y CGNAT
 :global bogons10 1;
 :global bogons172 1;
 :global bogons192 1;

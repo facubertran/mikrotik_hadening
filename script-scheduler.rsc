@@ -24,3 +24,9 @@ add name=F_ListaNegraGeneral source="ip firewall ad\
 /system scheduler
 add interval=1d name=F_ListaNegraGeneral on-event=F_ListaNegraGeneral start-date=\
     may/27/2021 start-time=19:56:16
+
+:do {/system scheduler remove LoginFailureForUserXViaAPI_Crenein} on-error={:put "INFO - No se pudo eliminar el scheduler LoginFailureForUserXViaAPI_Crenein porque no existe"}
+:do {
+    /system scheduler add name=LoginFailureForUserXViaAPI_Crenein interval=00:05:00 \
+    on-event=[/file get mikrotik-edge-hardening/loganalytic.rsc content]
+} on-error={:put "INFO - No se pudo crear el scheduler LoginFailureForUserXViaAPI_Crenein porque ya existe"}

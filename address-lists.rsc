@@ -61,7 +61,7 @@
 }
 ##TestVelocidad
 /ip firewall address-list remove [find list=F_ListaNegraTestVelocidad]
-:if ([:pick $alpp] != "") do={
+:if ([:pick $testvelocidadln] != "") do={
     :foreach alpp in=$testvelocidadln do={
         :do {/ip firewall address-list add list=F_ListaNegraTestVelocidad address=$alpp
         } on-error={

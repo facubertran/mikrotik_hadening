@@ -182,9 +182,7 @@ add action=drop chain=ProteccionWinbox_Crenein
     dst-port=[/ip service get $apis port] jump-target=ProteccionAPIMikrotik_Crenein protocol=tcp
 }
 #Control de IPs
-:if ([:pick $apiln] != "") do={
-    /ip firewall filter add chain=ProteccionAPIMikrotik_Crenein src-address-list=F_ListaNegraAPI action=drop;
-}
+/ip firewall filter add chain=ProteccionAPIMikrotik_Crenein src-address-list=F_ListaNegraAPI action=drop;
 :if ([:pick $apilb] != "") do={
     /ip firewall filter add chain=ProteccionAPIMikrotik_Crenein src-address-list=F_ListaBlancaAPI action=accept;
 }
