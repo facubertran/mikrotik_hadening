@@ -223,9 +223,9 @@ add action=drop chain=ProteccionHTTP_Crenein
 ##SSH
 add action=jump chain=input comment=ProteccionSSH_Crenein dst-port=[/ip service get 3 port] jump-target=ProteccionSSH_Crenein protocol=tcp
 #Control de IPs
-/ip firewall filter add chain=ProteccionHTTP_Crenein src-address-list=F_ListaNegraSSH action=drop;
+/ip firewall filter add chain=ProteccionSSH_Crenein src-address-list=F_ListaNegraSSH action=drop;
 :if ([:pick $sshlb] != "") do={
-    /ip firewall filter add chain=ProteccionHTTP_Crenein src-address-list=F_ListaBlancaSSH action=accept;
+    /ip firewall filter add chain=ProteccionSSH_Crenein src-address-list=F_ListaBlancaSSH action=accept;
 }
 #Control login fallidos
 add action=add-src-to-address-list address-list=F_ListaNegraSSH address-list-timeout=1w3d chain=ProteccionSSH_Crenein connection-state=new src-address-list=\
@@ -237,13 +237,13 @@ add action=add-src-to-address-list address-list=F_ProteccionSSH_Crenein_Intento2
 add action=add-src-to-address-list address-list=F_ProteccionSSH_Crenein_Intento1 address-list-timeout=1m chain=ProteccionSSH_Crenein connection-state=new
 #Control de interfaces
 :if ($sshii=1) do={
-    /ip firewall filter add action=accept chain=F_ProteccionSSH_Crenein in-interface-list=InterfacesInternas
+    /ip firewall filter add action=accept chain=ProteccionSSH_Crenein in-interface-list=InterfacesInternas
 }
 :if ($sshie=1) do={
-    /ip firewall filter add action=accept chain=F_ProteccionSSH_Crenein in-interface-list=InterfacesExternas
+    /ip firewall filter add action=accept chain=ProteccionSSH_Crenein in-interface-list=InterfacesExternas
 }
 :if ($sshiec=1) do={
-    /ip firewall filter add action=accept chain=F_ProteccionSSH_Crenein in-interface-list=InterfacesExternasDeConfianza
+    /ip firewall filter add action=accept chain=ProteccionSSH_Crenein in-interface-list=InterfacesExternasDeConfianza
 }
 add action=drop chain=ProteccionSSH_Crenein
 
