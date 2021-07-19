@@ -237,13 +237,13 @@ add action=add-src-to-address-list address-list=F_ProteccionSSH_Crenein_Intento2
 add action=add-src-to-address-list address-list=F_ProteccionSSH_Crenein_Intento1 address-list-timeout=1m chain=ProteccionSSH_Crenein connection-state=new
 #Control de interfaces
 :if ($sshii=1) do={
-    /ip firewall filter add action=accept chain=ProteccionHTTP_Crenein in-interface-list=InterfacesInternas
+    /ip firewall filter add action=accept chain=F_ProteccionSSH_Crenein in-interface-list=InterfacesInternas
 }
 :if ($sshie=1) do={
-    /ip firewall filter add action=accept chain=ProteccionHTTP_Crenein in-interface-list=InterfacesExternas
+    /ip firewall filter add action=accept chain=F_ProteccionSSH_Crenein in-interface-list=InterfacesExternas
 }
 :if ($sshiec=1) do={
-    /ip firewall filter add action=accept chain=ProteccionHTTP_Crenein in-interface-list=InterfacesExternasDeConfianza
+    /ip firewall filter add action=accept chain=F_ProteccionSSH_Crenein in-interface-list=InterfacesExternasDeConfianza
 }
 add action=drop chain=ProteccionSSH_Crenein
 
