@@ -10,9 +10,9 @@
 ##----------Configuracion de redes o IPs de confianza------------##
 #Registra las redes o IPs de confianza
 ##----------Configuracion listas generales------------##
-:global redespublicas {"45.98.68.5"}
-:global redesdeorigenpermitidas {"45.98.68.5"}
-:global publicasdentrodelared {"45.98.68.5"}
+:global redespublicas {""}
+:global redesdeorigenpermitidas {""}
+:global publicasdentrodelared {""}
 ##----------Configuracion bogons------------##
 #Crea o no bogons de redes privadas y CGNAT
 :global bogons10 1;
@@ -47,9 +47,9 @@
 :global ospfiec 0; #Interfaces ExternasDeConfianza
 #BGP
 :global bgpln {""};
-:global bgplb {"45.70.8.1"};
+:global bgplb {""};
 :global bgpii 1;
-:global bgpie 1;
+:global bgpie 0;
 :global bgpiec 1;
 #DNS
 :global dnsln {""};
@@ -74,11 +74,11 @@
 :global winboxln {""};
 :global winboxlb {""};
 :global winboxii 1;
-:global winboxie 1;
+:global winboxie 0;
 :global winboxiec 1;
 #API
 :global apiln {""};
-:global apilb {"149.46.68.55"; "141.69.8.66"};
+:global apilb {""};
 :global apiii 0;
 :global apiie 0;
 :global apiiec 0;
@@ -92,8 +92,8 @@
 :global httpln {""};
 :global httplb {""};
 :global httpii 1;
-:global httpie 1;
-:global httpiec 1;
+:global httpie 0;
+:global httpiec 0;
 #NTP
 :global ntpln {""};
 :global ntplb {""};
@@ -103,7 +103,7 @@
 #RADIUS
 :global radiusln {""};
 :global radiuslb {""};
-:global radiusii 1;
+:global radiusii 0;
 :global radiusie 0;
 :global radiusiec 0;
 #SOCKS
