@@ -57,7 +57,7 @@ add action=jump chain=input dst-port=2000 jump-target=ProteccionTestVelocidadMik
 add action=drop chain=ProteccionTestVelocidadMikrotik_Crenein
 ##Proteccion general
 add action=jump chain=input comment=ProteccionGeneralDeEntrada_Crenein jump-target=ProteccionGeneralDeEntrada_Crenein
-add action=accept chain=ProteccionGeneralDeEntrada_Crenein src-address-list=F_PermitidoPorReconocimientoParaAccesoPublico_Crenein
+add action=accept chain=ProteccionGeneralDeEntrada_Crenein src-address-list=F_PermitidoPorReconocimientoParaAccesoPublico
 add action=reject chain=ProteccionGeneralDeEntrada_Crenein reject-with=icmp-host-unreachable src-address-list=F_DeteccionEscaneoDePuertos
 add action=return chain=ProteccionGeneralDeEntrada_Crenein connection-state=new limit=150,20:packet
 ##Proteccion tcp
