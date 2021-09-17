@@ -32,7 +32,7 @@ add action=jump chain=input comment=ReconocimientoParaAccesoPublico_Crenein dst-
 add action=add-src-to-address-list address-list=F_ReconocimientoParaAccesoPublico_Fase1 address-list-timeout=1m chain=ReconocimientoParaAccesoPublico_Crenein dst-port=($portknoking->"port1") \
     protocol=tcp
 add action=add-src-to-address-list address-list=F_PermitidoPorReconocimientoParaAccesoPublico address-list-timeout=30m chain=ReconocimientoParaAccesoPublico_Crenein \
-    dst-port=($portknoking->"port2") protocol=tcp src-address-list=F_ReconocimientoParaAccesoPublico_Crenein_Fase1
+    dst-port=($portknoking->"port2") protocol=tcp src-address-list=F_ReconocimientoParaAccesoPublico_Fase1
 add action=return chain=ReconocimientoParaAccesoPublico_Crenein
 ##Test de velocidad
 add action=jump chain=input comment=ProteccionTestVelocidadMikrotik_Crenein dst-port=2000 jump-target=ProteccionTestVelocidadMikrotik_Crenein protocol=tcp
