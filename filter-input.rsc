@@ -26,7 +26,7 @@
 ##Configuraicon
 /ip firewall filter
 add action=accept chain=input comment=DeshabilitarFirewal_Crenein disabled=no
-add action=passthrough chain=input comment="Proteccion de Input - Crenein v6.4"
+add action=passthrough chain=input comment="Proteccion de Input - Crenein v6.5"
 add action=jump chain=input comment=ReconocimientoParaAccesoPublico_Crenein dst-port=($portknoking->"port1") jump-target=ReconocimientoParaAccesoPublico_Crenein protocol=tcp
 add action=jump chain=input comment=ReconocimientoParaAccesoPublico_Crenein dst-port=($portknoking->"port2") jump-target=ReconocimientoParaAccesoPublico_Crenein protocol=tcp
 add action=add-src-to-address-list address-list=F_ReconocimientoParaAccesoPublico_Fase1 address-list-timeout=1m chain=ReconocimientoParaAccesoPublico_Crenein dst-port=($portknoking->"port1") \
@@ -336,9 +336,8 @@ add action=drop chain=ProteccionSMB_Crenein
 ##PPTP
 add action=jump chain=input comment=ProteccionPPTP_Crenein dst-port=1723 jump-target=ProteccionPPTP_Crenein protocol=tcp
 #Control de IPs
-:if ([:pick $pptpln] != "") do={
-    /ip firewall filter add chain=ProteccionPPTP_Crenein src-address-list=F_ListaNegraPPTP action=drop;
-}
+/ip firewall filter add chain=ProteccionPPTP_Crenein src-address-list=F_ListaNegraPPTP action=drop;
+
 :if ([:pick $pptplb] != "") do={
     /ip firewall filter add chain=ProteccionPPTP_Crenein src-address-list=F_ListaBlancaPPTP action=accept;
 }
@@ -356,9 +355,8 @@ add action=drop chain=ProteccionPPTP_Crenein
 ##GRE
 add action=jump chain=input comment=ProteccionGRE_Crenein jump-target=ProteccionGRE_Crenein protocol=gre
 #Control de IPs
-:if ([:pick $greln] != "") do={
-    /ip firewall filter add chain=ProteccionGRE_Crenein src-address-list=F_ListaNegraGRE action=drop;
-}
+/ip firewall filter add chain=ProteccionGRE_Crenein src-address-list=F_ListaNegraGRE action=drop;
+
 :if ([:pick $grelb] != "") do={
     /ip firewall filter add chain=ProteccionGRE_Crenein src-address-list=F_ListaBlancaGRE action=accept;
 }
@@ -377,9 +375,8 @@ add action=drop chain=ProteccionGRE_Crenein
 ##L2TP
 add action=jump chain=input comment=ProteccionL2TP_Crenein dst-port=1701 jump-target=ProteccionL2TP_Crenein protocol=udp
 #Control de IPs
-:if ([:pick $l2tpln] != "") do={
-    /ip firewall filter add chain=ProteccionL2TP_Crenein src-address-list=F_ListaNegraL2TP action=drop;
-}
+/ip firewall filter add chain=ProteccionL2TP_Crenein src-address-list=F_ListaNegraL2TP action=drop;
+
 :if ([:pick $l2tplb] != "") do={
     /ip firewall filter add chain=ProteccionL2TP_Crenein src-address-list=F_ListaBlancaL2TP action=accept;
 }
@@ -399,9 +396,8 @@ add action=jump chain=input comment=ProteccionIPSEC_Crenein dst-port=500 jump-ta
 add action=jump chain=input jump-target=ProteccionIPSEC_Crenein protocol=ipsec-esp
 add action=jump chain=input jump-target=ProteccionIPSEC_Crenein protocol=ipsec-ah
 #Control de IPs
-:if ([:pick $ipsecln] != "") do={
-    /ip firewall filter add chain=ProteccionIPSEC_Crenein src-address-list=F_ListaNegraIPSEC action=drop;
-}
+/ip firewall filter add chain=ProteccionIPSEC_Crenein src-address-list=F_ListaNegraIPSEC action=drop;
+
 :if ([:pick $ipseclb] != "") do={
     /ip firewall filter add chain=ProteccionIPSEC_Crenein src-address-list=F_ListaBlancaIPSEC action=accept;
 }

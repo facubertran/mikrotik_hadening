@@ -1,17 +1,22 @@
-##-----------__Version 6.4 __-------------####
+##-----------__Version 6.5 __-------------####
 ##
 #Registra los puertos para port-knoking
 ##
 ##----------Configuracion de redes o IPs de confianza------------##
 :global portknoking {port1="1"; port2="2"};
 ##
+##--------Configuracion login failure API------##
+:global loginfailureapi 0; #-- 1 habilitado 0 deshabilitado
 ##--------Configuracion de reconocimiento de login fallido api------##
 :global intentosfallidos 3;
+##--------Configuracion lista negra general------##
+:global listanegragral 0; #-- 1 habilitado 0 deshabilitado
 ##----------Configuracion de redes o IPs de confianza------------##
 #Registra las redes o IPs de confianza
 ##----------Configuracion listas generales------------##
 :global redespublicas {""}
 :global redesdeorigenpermitidas {""}
+:global origenespermitidosnewnodnat {""}; #-Permite conexiones del exterior a redes privadas
 :global publicasdentrodelared {""}
 ##----------Configuracion bogons------------##
 #Crea o no bogons de redes privadas y CGNAT
@@ -29,7 +34,7 @@
 ##
 #Valor 1; habilitado, valor 0 deshabilitado
 ##
-:global smtp 1;
+:global smtp 0;
 ##----------Configuracion de servicios------------##
 ##
 #Habilita o deshabilita servicios en las interfaces. Valor 1; habilitado, valor 0 deshabilitado.

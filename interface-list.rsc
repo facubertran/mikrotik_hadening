@@ -8,5 +8,5 @@
 /
 :foreach ie in=$interfacesexternas do={:if ([:len $ie] > 2) do={/interface list member add list=InterfacesExternas interface=$ie}}
 :foreach iec in=$interfacesexternasdeconfianza do={:if ([:len $iec] > 2) do={/interface list member add list=InterfacesExternasDeConfianza interface=$iec}}
-:foreach ii in=[/interface find] do={:if ([:len [/interface list member find interface=[/interface get $ii name]]] = 0) do={\
+:foreach ii in=[/interface find dynamic!=yes] do={:if ([:len [/interface list member find interface=[/interface get $ii name]]] = 0) do={\
 /interface list member add list=InterfacesInternas interface=$ii}}

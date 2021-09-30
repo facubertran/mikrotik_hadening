@@ -1,7 +1,7 @@
 :global smtp;
 /ip firewall filter
 add action=accept chain=forward comment=DeshabilitarFirewal_Crenein disabled=no
-add action=passthrough chain=forward comment="Proteccion de Forward - Crenein v6.4"
+add action=passthrough chain=forward comment="Proteccion de Forward - Crenein v6.5"
 add action=jump chain=forward comment=ProteccionPublicasDentroDeLaRed_Crenein \
     dst-address-list=F_ProteccionPublicasDentroDeLaRed jump-target=\
     ProteccionPublicasDentroDeLaRed_Crenein
@@ -13,6 +13,8 @@ add action=drop chain=ProteccionForwardEntrada_Crenein src-address-list=\
     F_ListaNegraGeneral
 add action=accept chain=ProteccionForwardEntrada_Crenein connection-state=\
     established,related,new dst-address-list=FN_RedesPublicasPropias
+add action=accept chain=ProteccionForwardEntrada_Crenein connection-state=\
+    established,related,new src-address-list=F_OrigenesPermitidosNewNoDnat
 add action=accept chain=ProteccionForwardEntrada_Crenein connection-state=\
     established,related
 add action=drop chain=ProteccionForwardEntrada_Crenein connection-nat-state=!dstnat \
@@ -34,6 +36,8 @@ add action=drop chain=ProteccionForwardSalida_Crenein dst-address-list=\
     F_ListaNegraGeneral
 add action=accept chain=ProteccionForwardSalida_Crenein connection-state=\
     established,related,new src-address-list=FN_RedesPublicasPropias
+add action=accept chain=ProteccionForwardSalida_Crenein connection-state=\
+    established,related,new dst-address-list=F_OrigenesPermitidosNewNoDnat
 add action=accept chain=ProteccionForwardSalida_Crenein connection-state=\
     established,related
 add action=drop chain=ProteccionForwardSalida_Crenein connection-state=invalid \

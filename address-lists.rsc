@@ -1,5 +1,5 @@
 #Variables globales
-:global redespublicas; :global publicasdentrodelared; :global redesdeorigenpermitidas;
+:global redespublicas; :global publicasdentrodelared; :global redesdeorigenpermitidas; :global origenespermitidosnewnodnat;
 #
 :global testvelocidadlb;:global bgplb;:global dnslb;:global snmplb;:global winboxlb;:global apilb;
 :global sshlb;:global httplb;:global ntplb;:global radiuslb;:global sockslb;:global l2tplb;
@@ -30,6 +30,15 @@
         :do {/ip firewall address-list add list=F_OrigenesPermitidos address=$alpp
         } on-error={
             :put "INFO - El address-list address=$alpp list=F_OrigenesPermitidos ya existe o no se puede crear";
+        }
+    }
+}
+##Origienes que se permiten establecer conexion del exterior sin dnat
+:if ([:pick $origenespermitidosnewnodnat] != "") do={
+    :foreach alpp in=$origenespermitidosnewnodnat do={
+        :do {/ip firewall address-list add list=F_OrigenesPermitidosNewNoDnat address=$alpp
+        } on-error={
+            :put "INFO - El address-list address=$alpp list=F_OrigenesPermitidosNewNoDnat ya existe o no se puede crear";
         }
     }
 }
